@@ -1,17 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Rubik', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base{
+  h1{
+    @apply text-[35px]
+  }
+  h2{
+    @apply text-[30px]
+  }
+  h3{
+    @apply text-[25px]
+  }
+  h4{
+    @apply text-[20px]
+  }
+  h5{
+    @apply text-[18px]
+  }
+  p{
+    @apply text-[16px]
+  }
+}
+
+.PhoneInput{
+  border: 1px solid black;
+  padding : 0.5rem;
+  margin: 5px auto;
+  border-radius: 0.25rem;
+}
+.PhoneInput--focus{
+  border: 1px solid black;
+  outline: none;
+}
+.PhoneInputInput:focus{
+  outline: none;
+  border: none;
 }
