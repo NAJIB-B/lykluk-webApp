@@ -1,8 +1,14 @@
+import VideoComponent from "../videoComponent/videoComponent";
 
 
 const  centerMenu=()=> {
   return (
-    <div>centerNav</div>
+    <>
+    <div className="w-[60%] m-auto">
+
+    <VideoComponent></VideoComponent>
+    </div>
+    </>
   )
 }
 
