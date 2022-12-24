@@ -11,6 +11,8 @@ import avatar from "./images/Avator.svg"
 const  RightSideNav=()=> {
   return (
     <div className="pr-[1rem] py-1">
+      <div className=" overflow-y-auto">
+
       <div className="flex justify-between bg-gradient-to-b from-[white] to-[#00224B] rounded-[19px] p-[1rem]">
         <div>
         <h4 className="text-[18px]">Discover trending videos around you</h4>
@@ -46,6 +48,8 @@ const  RightSideNav=()=> {
         </div>
 
       </div>
+      
+
       <div className="flex justify-between mt-[1rem] items-center">
           <h4>#Popular</h4>
           <p className="text-[10px]">18M</p>
@@ -76,6 +80,39 @@ const  RightSideNav=()=> {
           
         </div>
         <h3 className="w-[80%]">Discover trending videos around you</h3>
+        <div className="flex justify-between mt-[1rem] items-center">
+          <h4>#Popular</h4>
+          <p className="text-[10px]">18M</p>
+        </div>
+        <div className="flex justify-between">
+          <div className="p-[0.3rem] relative">
+            <img src={img1} alt="" />
+            <div className="absolute bottom-[0.8rem] left-[0.5rem]">
+              <div className="flex items-center">
+              <img src={avatar} alt="" className="mr-[0.5rem]"/>
+                <span className="text-white text-[12px] " >Najib Bala</span>
+              </div>
+              
+              
+            </div>
+            </div>
+          <div className="p-[0.3rem] relative">
+            <img src={img2} alt="" />
+            <div className="absolute bottom-[0.8rem] left-[0.5rem]">
+              <div className="flex items-center">
+              <img src={avatar} alt="" className="mr-[0.5rem]"/>
+                <span className="text-white text-[12px] " >Najib Bala</span>
+              </div>
+              
+              
+            </div>
+            </div>
+          
+        </div>
+        
+      </div>
+     
+        
     </div>
   )
 }

@@ -7,6 +7,13 @@ const  centerMenu=()=> {
     <div className="w-[60%] m-auto">
 
     <VideoComponent></VideoComponent>
+    <VideoComponent></VideoComponent>
+    <VideoComponent></VideoComponent>
+    <VideoComponent></VideoComponent>
+    <VideoComponent></VideoComponent>
+    <VideoComponent></VideoComponent>
+    <VideoComponent></VideoComponent>
+    <VideoComponent></VideoComponent>
     </div>
     </>
   )

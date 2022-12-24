@@ -26,6 +26,12 @@ const  PopularAccountSection=()=> {
             <PopularAccountItem></PopularAccountItem>
             <PopularAccountItem></PopularAccountItem>
             <PopularAccountItem></PopularAccountItem>
+            <PopularAccountItem></PopularAccountItem>
+            <PopularAccountItem></PopularAccountItem>
+            <PopularAccountItem></PopularAccountItem>
+            <PopularAccountItem></PopularAccountItem>
+            <PopularAccountItem></PopularAccountItem>
+            <PopularAccountItem></PopularAccountItem>
            
             
             

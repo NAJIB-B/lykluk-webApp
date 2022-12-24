@@ -8,7 +8,7 @@ const Body=()=> {
     <div className="fixed">
     
     <div className="flex bg-backgroundGray mt-[3.7rem] ">
-        <div className="flex-[25%]"> <LeftSideNav></LeftSideNav></div>
+        <div className="flex-[25%]"><LeftSideNav></LeftSideNav></div>
         <div className="flex-[49.5%]"> <CenterNav></CenterNav></div>
         <div className="flex-[25.5%]"> <RightSideNav></RightSideNav></div>
     </div>
