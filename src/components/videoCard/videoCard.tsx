@@ -2,7 +2,7 @@
 
 const VideoCard =()=> {
   return (
-    <div>videoCard</div>
+    <div> videoCard</div>
   )
 }
 
