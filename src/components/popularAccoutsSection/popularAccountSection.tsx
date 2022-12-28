@@ -10,14 +10,17 @@ const  PopularAccountSection=()=> {
       navigate("/signup", { replace: true });
     }
   return (
-    <div className='h-[70vh] overflow-y-auto'>
+
+
+    <div className='h-[100%] overflow-scroll lg:mt-[65%]  mt-[85%]  px-[1.5rem] lg:pb-[65%] md:pb-[85%] '>
+           
         <HorizontalRule></HorizontalRule>
         <p className='py-2 text-lightGray text-[15px]'>
         Don’t have an Account? Sign Up to share videos,
          follow creators, like videos and make comments
         </p>
         <button 
-        className='bg-gradient-to-r from-[#000000] to-[#8E00FE] w-full text-white py-2 mb-3 rounded-[4px]'
+        className='bg-gradient-to-r from-[#000000] to-[#8E00FE] w-[100%] text-white py-2 mb-3 rounded-[4px]'
         onClick={gotoSignup}>
             Sign Up</button>
             <HorizontalRule></HorizontalRule>
@@ -39,8 +42,10 @@ const  PopularAccountSection=()=> {
             <Link to="/" className='text-primary'> See more</Link>
             <HorizontalRule></HorizontalRule>
             <h5 className='mb-3'>Trending Hashtags</h5>
+           
 
     </div>
+   
   )
 }
 

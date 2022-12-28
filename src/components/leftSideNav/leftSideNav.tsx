@@ -5,7 +5,8 @@ import PopularAccountSection from "../popularAccoutsSection/popularAccountSectio
 const  LeftSideNav=()=> {
   return (
     <>
-    <div className="px-[1.5rem] ">
+    <div className=" w-[25%] overflow-hidden h-[100%]">
+
     <LeftSideNavLinks></LeftSideNavLinks>
     <PopularAccountSection></PopularAccountSection>
     </div>

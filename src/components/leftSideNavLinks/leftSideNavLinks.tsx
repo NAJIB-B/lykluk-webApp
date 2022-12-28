@@ -3,7 +3,7 @@ import discover from "./images/Group 80082.svg"
 import following from "./images/309041_users_group_people_icon 3.svg"
 const LeftSideNavLinks =()=> {
   return (
-    <div className="py-3">
+    <div className="py-3 fixed h-[20%] px-[1.5rem]">
         
      <div className="flex jusitfy-between items-center py-[1rem]">
         <img src={home} alt="home"  className="w-[33px] mr-[1.5rem]"/>
