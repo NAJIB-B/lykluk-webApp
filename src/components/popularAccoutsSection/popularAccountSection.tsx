@@ -12,7 +12,7 @@ const  PopularAccountSection=()=> {
   return (
 
 
-    <div className='h-[100%] overflow-scroll lg:mt-[65%]  mt-[85%]  px-[1.5rem] lg:pb-[65%] md:pb-[85%] '>
+    <div className='h-[100%] overflow-scroll   mt-[13.5rem]  px-[1.5rem]  pb-[13.5rem] '>
            
         <HorizontalRule></HorizontalRule>
         <p className='py-2 text-lightGray text-[15px]'>
