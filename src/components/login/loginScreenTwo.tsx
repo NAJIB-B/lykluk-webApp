@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 import MethodSwitchComponent from "../methodSwitchComponent/methodSwitchComponent";
 
@@ -7,10 +7,29 @@ import PhoneNumberInputField from "../phoneNumberInputField/phoneNumberInputFiel
 import PasswordInputField from "../passwordInputField/passwordInputField";
 
 import AuthModalButton from "../authModalButton/authModalButton";
+import { passwordInputType } from "../passwordInputField/passwordInputFieldWithoutLabel";
+import { E164Number } from "libphonenumber-js/types";
 
+type DefaultFormFieldsTypes={
+    
+    email:string;
+    password: string;
+}
 
+const defaultFormFields: DefaultFormFieldsTypes={
+    password:"",   
+    email:"",
+}
 
 const LoginScreenTwo =()=> {
+
+    const [formFields, setFormFields]= useState<DefaultFormFieldsTypes>(defaultFormFields)
+    const {password, email} = formFields
+
+    const change =(e: ChangeEvent<HTMLInputElement>)=>{
+     const {name, value} = e.target;
+     setFormFields({...formFields, [name]:value})
+    }
 
 const [phoneNumber, setPhoneNumber] =useState(true)
 
@@ -26,6 +45,13 @@ const switchContent=()=>{
     const gotoSignup =()=>{
       navigate("/signup", { replace: true });
     }
+
+    const phoneNumberField:E164Number|undefined =""
+    const [phoneField, setPhoneField] = useState<E164Number | undefined>(phoneNumberField)
+    // const onPhoneInputChange =()=>{
+    //     setPhoneField(phoneField)
+    // }
+  
     return (
         <>
             
@@ -40,18 +66,32 @@ const switchContent=()=>{
                <div className="w-[85%] m-auto">
                 
                 
-                <PhoneNumberInputField></PhoneNumberInputField>
+                <PhoneNumberInputField 
+                changeFunction={setPhoneField}
+                value={phoneField}></PhoneNumberInputField>
                 
-                <PasswordInputField></PasswordInputField>
+                
+                <PasswordInputField 
+                type={passwordInputType.password}
+                changeFunction={change}
+                value={password}
+                ></PasswordInputField>
                
                </div>
                
                 : 
                 <div className="w-[85%] m-auto">
                 <label>Email</label>
-                <input type="tel" name="" id="" className="w-full border py-2 rounded my-2 px-2"
+                <input type="email" 
+                name="email"
+                value={email}
+                onChange={change}
+                className="w-full border py-2 rounded my-2 px-2"
                 placeholder="Enter your email"/>
-                <PasswordInputField></PasswordInputField>
+                <PasswordInputField 
+                type={passwordInputType.password}
+                changeFunction={change}
+                value={password}></PasswordInputField>
                </div>
                 }
                <div className="w-[85%] m-auto mt-[0.2rem]">

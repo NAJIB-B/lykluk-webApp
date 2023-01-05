@@ -5,6 +5,50 @@ import { useNavigate } from "react-router-dom";
 
 
 const TopNav =()=>{
+    const doit =async()=>{
+        const data = {
+          username:"user419@gmail.com",
+          password: "password",
+          app_token: "jskhfisofsij" 
+        }
+
+        try {
+      
+          
+          const response =await fetch("https://api.lykluk.com:8080/auth/signin", {
+                  method: "POST",
+                
+                    body:JSON.stringify(data),
+                  
+                  headers: {
+                    "Content-Type": "application/json"
+                  },
+                  redirect: 'follow'
+                 
+                 })
+          
+        
+            const value =  response.json()
+            console.log(value)
+          // const response =await fetch("https://api.lykluk.com:8080/auth/signup", {
+          //         method: "POST",
+                
+          //           body:JSON.stringify(data),
+                  
+          //         headers: {
+          //           "Content-Type": "application/json"
+          //         },
+          //         redirect: 'follow'
+                 
+          //        })
+          
+        
+          //   const value =  response.json()
+          //   console.log(value)
+        } catch (error) {
+          console.log(error)
+        }
+      }
 
     const navigate = useNavigate()
     const gotoLogin =()=>{
@@ -34,7 +78,8 @@ return(
         </div>
         <div className="flex items-center">
             <div  className="border-r border-primary p-[1rem] h-[2.2rem] flex items-center">
-            <button className="border border-primary rounded-[8px]  px-3 h-[2.2rem] text-primary ">
+            <button className="border border-primary rounded-[8px]  px-3 h-[2.2rem] text-primary "
+            onClick={doit}>
                 <img src={circlePlus} alt="post" className="inline-block w-[25px] "/> post
                 </button> 
             </div>

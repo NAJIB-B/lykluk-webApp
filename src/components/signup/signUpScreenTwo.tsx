@@ -3,20 +3,56 @@ import MethodSwitchComponent from "../methodSwitchComponent/methodSwitchComponen
 import { ChangeEvent, useState } from "react"
 
 import PhoneNumberInputFieldWithoutLabel from "../phoneNumberInputField/phoneNumberInputFieldWithoutLabel"
-import PasswordInputFieldWithoutLabel from "../passwordInputField/passwordInputFieldWithoutLabel"
+import PasswordInputFieldWithoutLabel, { passwordInputType } from "../passwordInputField/passwordInputFieldWithoutLabel"
 import AuthModalButton from "../authModalButton/authModalButton"
+import { E164Number } from 'libphonenumber-js/types'
 
+type DefaultFormFieldsTypes ={
+    name:string;
+    dob:string;
+    email:string;
+    password:string;
+    terms:boolean;
+    confirmPassword:string;
+}
+
+
+const defaultFormFields: DefaultFormFieldsTypes ={
+    name:"",
+    dob:"",
+    email:"",
+    password:"",
+    confirmPassword:"",
+    terms:true,
+    
+}
 
 const SignUpScreenTwo =()=> {
 
+    const [formFields, setFormFields] = useState<DefaultFormFieldsTypes>(defaultFormFields)
+    const phoneNumberField:E164Number|undefined =""
+    const [phoneField, setPhoneField] = useState<E164Number | undefined>(phoneNumberField)
+
+   
+
+    const {name, dob, email, password, confirmPassword, terms} = formFields;
+
     const [phoneNumber, setPhoneNumber] =useState<boolean>(true)
+
+
 
 const switchContent=()=>{
     setPhoneNumber(!phoneNumber)
 }
 
-const me =(e: ChangeEvent<HTMLInputElement>)=>{
-console.log(e.currentTarget.value)
+
+const change =(e: ChangeEvent<HTMLInputElement>)=>{
+const {name, value} = e.target
+if(name === "terms"){
+    setFormFields({...formFields, terms:!terms})
+    return
+}
+setFormFields({...formFields, [name]:value})
 }
 
   return (
@@ -27,23 +63,45 @@ console.log(e.currentTarget.value)
             <div className="w-[85%] m-auto">
                 
              <label>What's your Name ?</label>
-             <input type="text" className="w-full border py-2 px-2 rounded my-2 focus:outline-none"/>
+             <input 
+             onChange={change}
+             type="text" 
+             name="name"
+             value={name}
+             className="w-full border py-2 px-2 rounded my-2 focus:outline-none"/>
              <label>What's your Birthday ?</label>
              
-                <input type="date" name="" id=""  onChange={me}
+                <input type="date"  
+                onChange={change}
+                name="dob"
+                value={dob}
                 className="w-full border py-2 px-2 rounded my-2 focus:outline-none"/>
                 <span className="text-[10px] block">This information won't be made public</span>
-                {phoneNumber? <PhoneNumberInputFieldWithoutLabel></PhoneNumberInputFieldWithoutLabel>
+                {phoneNumber? 
+                <PhoneNumberInputFieldWithoutLabel 
+                changeFunction={setPhoneField}
+                value={phoneField}></PhoneNumberInputFieldWithoutLabel>
                 :
-                <input type="email"  className="w-full border py-2 rounded my-[5px] px-2"
+                <input 
+                type="email"
+                name="email"
+                value={email}
+                onChange={change}
+
+                  className="w-full border py-2 rounded my-[5px] px-2"
                 placeholder="Enter your email"/>}
               
                 
-                <PasswordInputFieldWithoutLabel></PasswordInputFieldWithoutLabel>
+                <PasswordInputFieldWithoutLabel type={passwordInputType.password}
+                changeFunction={change}
+                value={password}></PasswordInputFieldWithoutLabel>
+                <PasswordInputFieldWithoutLabel type={passwordInputType.confirmPassword}
+                changeFunction={change}
+                value={confirmPassword}></PasswordInputFieldWithoutLabel>
               
                 <div className="flex">
 
-                <input type="checkbox" name="" id=""  /> 
+                <input type="checkbox" name="terms" checked={terms} onChange={change} /> 
                 <p className="text-[12px] ml-2">Get trending content, newsletters, promotions, recommendations and 
                     account updates sent to your email
                 </p>

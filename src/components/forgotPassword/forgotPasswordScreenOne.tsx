@@ -5,6 +5,8 @@ import PhoneNumberInputFieldWithoutLabel from '../../components/phoneNumberInput
 import AuthModalButton from '../authModalButton/authModalButton'
 
 import { useNavigate } from 'react-router-dom'
+import {useState} from "react"
+import { E164Number } from 'libphonenumber-js/types'
 
 type ForgotPasswordScreenOnePropsType ={
     nextPageFunction:()=>void;
@@ -20,7 +22,12 @@ function ForgotPasswordScreenOne({nextPageFunction, email, switchMethod}:ForgotP
     }
 
  
+    const phoneNumberField:E164Number|undefined =""
+    const [phoneField, setPhoneField] = useState<E164Number | undefined>(phoneNumberField)
 
+    const onPhoneInputChange =()=>{
+      setPhoneField(phoneField)
+  }
 
 
   return (
@@ -31,7 +38,9 @@ function ForgotPasswordScreenOne({nextPageFunction, email, switchMethod}:ForgotP
             <p className='text-center font-bold text-[14px] mt-[2.5rem] mb-[1rem]'>Change Password</p>
             {email?
            <AuthModalInputElement type='email' placeholder='Email'></AuthModalInputElement> :
-           <PhoneNumberInputFieldWithoutLabel></PhoneNumberInputFieldWithoutLabel>
+           <PhoneNumberInputFieldWithoutLabel 
+           changeFunction={onPhoneInputChange}
+           value={phoneField}></PhoneNumberInputFieldWithoutLabel>
         }
         <p className='text-primary text-[12px] text-right underline cursor-pointer' onClick={switchMethod}>
             {email?"Use Phone Number":"Use email"}
