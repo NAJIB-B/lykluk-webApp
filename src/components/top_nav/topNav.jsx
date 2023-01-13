@@ -2,20 +2,27 @@ import logo from "./images/logo.svg"
 import circlePlus from "./images/Add Circle.svg"
 import { Icon } from '@iconify/react';
 import { useNavigate } from "react-router-dom";
+import { tokgen } from "../../utils/helper";
+import { useAuth } from "../../contexts/userContext";
 
 
 const TopNav =()=>{
+
+  const setUser = useAuth()?.setUser;
+  const user = useAuth()?.user;
+
     const doit =async()=>{
         const data = {
           username:"user419@gmail.com",
           password: "password",
-          app_token: "jskhfisofsij" 
+          app_token: "jfjdjedj",
         }
 
         try {
       
           
-          const response =await fetch("https://api.lykluk.com:8080/auth/signin", {
+          
+          const response = await fetch("https://api.lykluk.com:8080/auth/signin", {
                   method: "POST",
                 
                     body:JSON.stringify(data),
@@ -26,25 +33,14 @@ const TopNav =()=>{
                   redirect: 'follow'
                  
                  })
+                 console.log(response)
+                 console.log(response.json())
+            const value = await  response.json();
+            const userToken = value?.data?.access_token
+
+           setUser?.(userToken)
+            
           
-        
-            const value =  response.json()
-            console.log(value)
-          // const response =await fetch("https://api.lykluk.com:8080/auth/signup", {
-          //         method: "POST",
-                
-          //           body:JSON.stringify(data),
-                  
-          //         headers: {
-          //           "Content-Type": "application/json"
-          //         },
-          //         redirect: 'follow'
-                 
-          //        })
-          
-        
-          //   const value =  response.json()
-          //   console.log(value)
         } catch (error) {
           console.log(error)
         }
@@ -77,6 +73,10 @@ return(
           
         </div>
         <div className="flex items-center">
+          {
+            user? <p>Logged in</p>
+            :
+           <>
             <div  className="border-r border-primary p-[1rem] h-[2.2rem] flex items-center">
             <button className="border border-primary rounded-[8px]  px-3 h-[2.2rem] text-primary "
             onClick={doit}>
@@ -89,6 +89,9 @@ return(
             onClick={gotoLogin}>
                 Log in</button>
             </div>
+           </>
+          }
+           
             
         </div>
 

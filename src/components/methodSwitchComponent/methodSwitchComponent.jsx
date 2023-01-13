@@ -1,18 +1,7 @@
 import { useState } from "react"
-type OptionsType ={
-    option1:string;
-    option2:string;
-}
 
-type MethodSwitchComponentPropType={
-    option1:string;
-    option2:string;
-    switchContent:()=> void;
-    
-}
-
-const  MethodSwitchComponent =({option1, option2, switchContent}:MethodSwitchComponentPropType)=> {
-    const options:OptionsType={
+const  MethodSwitchComponent =({option1, option2, switchContent})=> {
+    const options={
         option1:"phoneNumber",
         option2:"email",
     }

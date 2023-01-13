@@ -6,18 +6,10 @@ import twitter from "./images/XMLID_1_.svg"
 import { useNavigate } from "react-router-dom"
 
 
-type ButtonObjectType={
-  text:string;
-  logo:string;
-  logoDescription:string;
-  function:()=>void;
-}
 
-type LoginScreenOnePropsType={
-  userFunction:()=>void;
-}
 
-const LoginScreenOne=({userFunction}:LoginScreenOnePropsType)=> {
+
+const LoginScreenOne=({userFunction})=> {
   const navigate = useNavigate()
   const gotoSignup =()=>{
     navigate("/signup", { replace: true });
@@ -25,7 +17,7 @@ const LoginScreenOne=({userFunction}:LoginScreenOnePropsType)=> {
  const emptyFunction =()=>{
   console.log("empty")
  }
-  const buttons:ButtonObjectType[] =[
+  const buttons =[
      {
       text:"Use email/username",
       logo:user,

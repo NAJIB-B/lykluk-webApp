@@ -4,17 +4,13 @@ import hiddenEye from "./images/hidden eye.svg"
 import { ChangeEvent } from "react"
 import { passwordInputType } from "./passwordInputFieldWithoutLabel"
 
-type PasswordInputFieldProps={
-type: string;
-changeFunction: (e: ChangeEvent<HTMLInputElement>)=> void;
-value: string;
-}
 
 
 
-const PasswordInputField =({type, changeFunction, value}:PasswordInputFieldProps)=> {
 
- const [visible, setVisible] = useState<boolean>(false);
+const PasswordInputField =({type, changeFunction, value})=> {
+
+ const [visible, setVisible] = useState(false);
 
 const changeVisibility =()=>{
     setVisible(!visible)
@@ -25,9 +21,9 @@ const changeVisibility =()=>{
         <label>{type === passwordInputType.password ? "Password" : "Confirm Password"}</label>
     <div className="relative">
         {visible ? 
-         <img src={hiddenEye} alt="hidden" className="absolute right-[2rem] w-[23px] top-[50%] translate-y-[-50%]"
+         <img src={hiddenEye} alt="hidden" className="absolute right-[0.8rem] w-[21px] top-[50%] translate-y-[-50%]"
          onClick={changeVisibility} ></img> :
-         <img src={eye} alt="visible" className="absolute right-[2rem] w-[23px] top-[50%] translate-y-[-50%]" 
+         <img src={eye} alt="visible" className="absolute right-[0.8rem] w-[21px] top-[50%] translate-y-[-50%]" 
          onClick={changeVisibility} ></img>
         }
         <input type={visible? "text": "password"} 

@@ -2,12 +2,9 @@ import logo from "./images/logo.svg"
 import cancel from "./images/Group 80275.svg"
 import back from "./images/Path 26.svg"
 
-type SectionWithBackBtnPropsType={
-  closeModal:()=>void;
-  goBack:()=>void;
-}
 
-const  SectionWithBackBtn =({closeModal, goBack}:SectionWithBackBtnPropsType)=> {
+
+const  SectionWithBackBtn =({closeModal, goBack})=> {
   return (
     <div className='flex justify-between'>
     <div className="flex justify-center items-center">

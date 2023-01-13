@@ -15,7 +15,8 @@ module.exports = {
       "authPageButtonsBorder": "#BFBFBF",
       "loginLinkPartition": "#D4D4D4",
       "authMethodSwitch": "#F4F5FA",
-      "rightSectionGradientBottomColor": "#00224B"
+      "rightSectionGradientBottomColor": "#00224B",
+      "red":"red",
       
     }
   },

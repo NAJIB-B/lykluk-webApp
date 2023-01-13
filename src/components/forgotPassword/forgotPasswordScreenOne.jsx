@@ -1,20 +1,15 @@
 
-import AuthModalInputElement from '../../components/authModalInputElement/authModalInputElement'
+import AuthModalInputElement from '../authModalInputElement/authModalInputElement'
 
-import PhoneNumberInputFieldWithoutLabel from '../../components/phoneNumberInputField/phoneNumberInputFieldWithoutLabel'
+import PhoneNumberInputFieldWithoutLabel from '../phoneNumberInputField/phoneNumberInputFieldWithoutLabel'
 import AuthModalButton from '../authModalButton/authModalButton'
 
 import { useNavigate } from 'react-router-dom'
 import {useState} from "react"
 import { E164Number } from 'libphonenumber-js/types'
 
-type ForgotPasswordScreenOnePropsType ={
-    nextPageFunction:()=>void;
-    email:boolean;
-    switchMethod:()=>void;
-}
 
-function ForgotPasswordScreenOne({nextPageFunction, email, switchMethod}:ForgotPasswordScreenOnePropsType) {
+function ForgotPasswordScreenOne({nextPageFunction, email, switchMethod}) {
 
     const navigate = useNavigate()
     const gotoSignup =()=>{
@@ -22,8 +17,8 @@ function ForgotPasswordScreenOne({nextPageFunction, email, switchMethod}:ForgotP
     }
 
  
-    const phoneNumberField:E164Number|undefined =""
-    const [phoneField, setPhoneField] = useState<E164Number | undefined>(phoneNumberField)
+   
+    const [phoneField, setPhoneField] = useState("")
 
     const onPhoneInputChange =()=>{
       setPhoneField(phoneField)

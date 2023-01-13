@@ -16,7 +16,7 @@ const  Login =()=> {
   const goBack =()=>{
     setFirstScreen(true)
   }
-  const [firstScreen, setFirstScreen] =useState<boolean>(true)
+  const [firstScreen, setFirstScreen] =useState(true)
   const gotoSecondScreen =()=>{
     setFirstScreen(false)
   }

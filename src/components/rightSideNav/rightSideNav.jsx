@@ -1,4 +1,4 @@
-import  yellowShirtWoman from "./images/aa 2.svg";
+import  blackShirtPeople from "./images/unsplash_zsppCWsxJy0.svg";
 import best from "./images/best.svg"
 import bolt from "./images/bolt.svg"
 import covid from "./images/covid.svg"
@@ -20,7 +20,7 @@ const  RightSideNav=()=> {
         </div>
         <div>
        
-          <img src={yellowShirtWoman} alt=""  className="w-[350px] inline-block  text-left "/>
+          <img src={blackShirtPeople} alt=""  className="w-[355px] inline-block right-[2rem] text-left "/>
           
           
         </div>

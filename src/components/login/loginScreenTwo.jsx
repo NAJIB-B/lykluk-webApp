@@ -10,25 +10,45 @@ import AuthModalButton from "../authModalButton/authModalButton";
 import { passwordInputType } from "../passwordInputField/passwordInputFieldWithoutLabel";
 import { E164Number } from "libphonenumber-js/types";
 
-type DefaultFormFieldsTypes={
-    
-    email:string;
-    password: string;
-}
 
-const defaultFormFields: DefaultFormFieldsTypes={
+
+const defaultFormFields={
     password:"",   
     email:"",
 }
 
 const LoginScreenTwo =()=> {
 
-    const [formFields, setFormFields]= useState<DefaultFormFieldsTypes>(defaultFormFields)
+    const [formFields, setFormFields]= useState(defaultFormFields)
     const {password, email} = formFields
 
-    const change =(e: ChangeEvent<HTMLInputElement>)=>{
+    const change =(e)=>{
      const {name, value} = e.target;
      setFormFields({...formFields, [name]:value})
+    }
+
+
+    const loginUser = async()=>{
+   try {
+    const response =await fetch("https://api.lykluk.com:8080/auth/signin", {
+        method: "POST",
+      
+          body:JSON.stringify({
+            username:email,
+          password: password,
+          app_token: "jskhfisofsij" 
+          }),
+        
+        headers: {
+          "Content-Type": "application/json"
+        },
+        redirect: 'follow'
+       
+       })
+     console.log(response)
+   } catch (error) {
+    console.log(error)
+   }
     }
 
 const [phoneNumber, setPhoneNumber] =useState(true)
@@ -46,8 +66,8 @@ const switchContent=()=>{
       navigate("/signup", { replace: true });
     }
 
-    const phoneNumberField:E164Number|undefined =""
-    const [phoneField, setPhoneField] = useState<E164Number | undefined>(phoneNumberField)
+    
+    const [phoneField, setPhoneField] = useState("")
     // const onPhoneInputChange =()=>{
     //     setPhoneField(phoneField)
     // }
@@ -102,7 +122,7 @@ const switchContent=()=>{
                     <div><span className="text-primary cursor-pointer" onClick={gotoForgetPassword}>Forgot Password</span></div>
                 </div>
                 <div className="mt-[2.5rem]">
-                <AuthModalButton content="Log in"></AuthModalButton>
+                <AuthModalButton content="Log in" onClickFunction={loginUser}></AuthModalButton>
                 </div>
               
                </div>

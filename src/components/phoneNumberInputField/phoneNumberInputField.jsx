@@ -6,11 +6,8 @@ import { Dispatch, SetStateAction } from 'react'
 
 
 
-type PhoneNumberInputFieldPropType={
-	changeFunction:Dispatch<SetStateAction<E164Number | undefined>>;
-	value: E164Number | undefined;
-  }
-const PhoneNumberInputField =({changeFunction, value}:PhoneNumberInputFieldPropType)=> {
+
+const PhoneNumberInputField =({changeFunction, value})=> {
 
 	
 

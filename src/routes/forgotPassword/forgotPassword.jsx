@@ -20,11 +20,11 @@ function ForgotPassword() {
         }
         setFirstScreen(true)
     }
-    const [firstScreen, setFirstScreen] =useState<boolean>(true)
+    const [firstScreen, setFirstScreen] =useState(true)
     const gotoSecondScreen =()=>{
         setFirstScreen(false)
       }
-      const [email, setEmail] = useState<boolean>(true)
+      const [email, setEmail] = useState(true)
 
       const switchMethod =()=>{
         setEmail(!email)

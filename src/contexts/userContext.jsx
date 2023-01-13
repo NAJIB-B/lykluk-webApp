@@ -2,21 +2,14 @@
 import React, { useState, createContext, useContext, useEffect, ReactNode } from "react";
 
 
-type userContextType={
-    user:string | null;
-    setUser:React.Dispatch<React.SetStateAction<string | null>>;
-}
 
-type AuthProviderPropType = {
-    children: ReactNode;
-}
 
-const AuthContext = createContext<userContextType| null>(null);
+const AuthContext = createContext(null);
 const useAuth = () => useContext(AuthContext);
 
-const AuthProvider = ({ children }:AuthProviderPropType) => {
+const AuthProvider = ({ children }) => {
 
-const  [user , setUser] = useState<string|null>("")
+const  [user , setUser] = useState("")
 
   const authContextValue = {
    user,
