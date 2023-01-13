@@ -6,7 +6,7 @@ import AuthModalButton from '../authModalButton/authModalButton'
 
 import { useNavigate } from 'react-router-dom'
 import {useState} from "react"
-import { E164Number } from 'libphonenumber-js/types'
+
 
 
 function ForgotPasswordScreenOne({nextPageFunction, email, switchMethod}) {

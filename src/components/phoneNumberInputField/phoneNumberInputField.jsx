@@ -1,7 +1,7 @@
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import flags from 'react-phone-number-input/flags'
-import { E164Number } from 'libphonenumber-js/types'
+
 import { Dispatch, SetStateAction } from 'react'
 
 
